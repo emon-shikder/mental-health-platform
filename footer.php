@@ -1,5 +1,5 @@
 <style>
-    /* Footer Base */
+
 footer.ft {
   background-color: black;
   color: white;
@@ -8,7 +8,6 @@ footer.ft {
   text-align: left;
 }
 
-/* Footer Container */
 footer.ft .ct {
   display: flex;
   flex-wrap: wrap;
@@ -18,12 +17,10 @@ footer.ft .ct {
   gap: 30px;
 }
 
-/* Section Style */
 footer.ft .sec {
   flex: 1 1 250px;
 }
 
-/* Logo Section */
 footer.ft .sec.logo {
   max-width: 300px;
 }
@@ -38,7 +35,6 @@ footer.ft .desc {
   color: gray;
 }
 
-/* Social Icons */
 footer.ft .soc {
   display: flex;
   gap: 10px;
@@ -52,7 +48,6 @@ footer.ft .soc .icon:hover {
   opacity: 0.8;
 }
 
-/* Links */
 footer.ft h4 {
   font-size: 16px;
   margin-bottom: 12px;
@@ -74,7 +69,6 @@ footer.ft ul li a:hover {
   color: white;
 }
 
-/* Emergency Box */
 footer.ft .emr-box {
   background-color: black;
   padding: 15px;
@@ -89,7 +83,6 @@ footer.ft .emr-title {
   font-weight: bold;
 }
 
-/* Bottom Bar */
 footer.ft .btm {
   text-align: center;
   padding: 15px 10px;
@@ -103,7 +96,6 @@ footer.ft .btm span.sup-avl {
   font-weight: bold;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   footer.ft .ct {
     flex-direction: column;
