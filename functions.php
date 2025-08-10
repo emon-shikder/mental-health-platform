@@ -100,3 +100,64 @@ if (!function_exists('add_mood')) {
         return $conn->query($sql);
     }
 }
+
+
+// Get messages between two users
+if (!function_exists('get_messages')) {
+    function get_messages($user1, $user2) {
+        global $conn;
+        $user1 = (int)$user1;
+        $user2 = (int)$user2;
+        $sql = "SELECT m.*, u.name as sender_name FROM messages m 
+                JOIN users u ON m.from_user = u.id 
+                WHERE (m.from_user = $user1 AND m.to_user = $user2) 
+                OR (m.from_user = $user2 AND m.to_user = $user1) 
+                ORDER BY m.created_at ASC";
+        $result = $conn->query($sql);
+        return $result;
+    }
+}
+
+// Add message
+if (!function_exists('add_message')) {
+    function add_message($from_user, $to_user, $content) {
+        global $conn;
+        $from_user = (int)$from_user;
+        $to_user = (int)$to_user;
+        $content = $conn->real_escape_string($content);
+        $sql = "INSERT INTO messages (from_user, to_user, content, created_at) 
+                VALUES ($from_user, $to_user, '$content', NOW())";
+        return $conn->query($sql);
+    }
+}
+
+// Get all users (for chat)
+if (!function_exists('get_users')) {
+    function get_users() {
+        global $conn;
+        $sql = "SELECT * FROM users ORDER BY name";
+        $result = $conn->query($sql);
+        return $result;
+    }
+}
+
+// Get counselors
+if (!function_exists('get_counselors')) {
+    function get_counselors() {
+        global $conn;
+        $sql = "SELECT * FROM users WHERE is_counselor = 1 ORDER BY name";
+        $result = $conn->query($sql);
+        return $result;
+    }
+}
+
+// Get students
+if (!function_exists('get_students')) {
+    function get_students() {
+        global $conn;
+        $sql = "SELECT * FROM users WHERE is_counselor = 0 ORDER BY name";
+        $result = $conn->query($sql);
+        return $result;
+    }
+}
+?>
