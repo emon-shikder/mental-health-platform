@@ -160,4 +160,47 @@ if (!function_exists('get_students')) {
         return $result;
     }
 }
+
+// Get all resources
+if (!function_exists('get_resources')) {
+    function get_resources() {
+        global $conn;
+        $sql = "SELECT * FROM resources ORDER BY id DESC";
+        $result = $conn->query($sql);
+        if ($result === false) {
+            // Table might not exist, return empty result
+            return false;
+        }
+        return $result;
+    }
+}
+
+// Alternative function name to avoid conflicts
+if (!function_exists('fetch_resources')) {
+    function fetch_resources() {
+        global $conn;
+        $sql = "SELECT * FROM resources ORDER BY id DESC";
+        $result = $conn->query($sql);
+        if ($result === false) {
+            // Table might not exist, return empty result
+            return false;
+        }
+        return $result;
+    }
+}
+
+// Add resource 
+if (!function_exists('add_resource')) {
+    function add_resource($title, $type, $description, $url) {
+        global $conn;
+        $title = $conn->real_escape_string($title);
+        $type = $conn->real_escape_string($type);
+        $description = $conn->real_escape_string($description);
+        $url = $conn->real_escape_string($url);
+        $sql = "INSERT INTO resources (title, type, description, url) 
+                VALUES ('$title', '$type', '$description', '$url')";
+        return $conn->query($sql);
+    }
+}
 ?>
+
