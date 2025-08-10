@@ -118,14 +118,14 @@ footer.ft .btm span.sup-avl {
 <footer class="ft">
     <div class="ct">
         <div class="sec logo">
-            <img src="logo.png" alt="Phyra Logo" class="lg">
+            <img src="images/mental.png" alt="Phyra Logo" class="lg">
             <p class="desc">
                 A safe and supportive community for students to connect, share experiences, and access mental health resources. You're not alone in your journey.
             </p>
             <div class="soc">
-                <a href="#"><img src="twitter-icon.png" alt="Twitter" class="icon"></a>
-                <a href="#"><img src="instagram-icon.png" alt="Instagram" class="icon"></a>
-                <a href="#"><img src="facebook-icon.png" alt="Facebook" class="icon"></a>
+                <a href="#"><img src="images/twitter.png" alt="Twitter" class="icon"></a>
+                <a href="#"><img src="images/insta.png" alt="Instagram" class="icon"></a>
+                <a href="#"><img src="images/fb.png" alt="Facebook" class="icon"></a>
             </div>
         </div>
 
@@ -142,11 +142,11 @@ footer.ft .btm span.sup-avl {
         <div class="sec sup">
             <h4>Support</h4>
             <ul>
-                <li><a href="help.php">Help Center</a></li>
-                <li><a href="contact.php">Contact Us</a></li>
-                <li><a href="privacy.php">Privacy Policy</a></li>
-                <li><a href="terms.php">Terms of Service</a></li>
-                <li><a href="faq.php">FAQ</a></li>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">FAQ</a></li>
             </ul>
         </div>
 
