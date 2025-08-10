@@ -3,7 +3,9 @@ require_once 'functions.php';
 ?>
 <nav class="navbar">
     <div class="container">
-        <a href="index.php" class="navbar-brand">Phyra</a>
+        <a href="index.php" class="navbar-brand">
+            <img src="mental.png" alt="Logo" style="height:40px;">
+        </a>
         
         <button class="mobile-menu-btn" onclick="toggle_mobile_menu()">
             ☰
