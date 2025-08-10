@@ -4,6 +4,13 @@ if (!function_exists('is_logged_in')) {
     }
 }
 
+if (!function_exists('is_counselor')) {
+    function is_counselor($user_id) {
+        $user = get_user($user_id);
+        return $user && $user['is_counselor'] == 1;
+    }
+}
+
 // Get all posts
 if (!function_exists('get_posts')) {
     function get_posts() {
@@ -55,3 +62,14 @@ if (!function_exists('add_comment')) {
         return $conn->query($sql);
     }
 }
+
+if (!function_exists('get_user')) {
+    function get_user($id) {
+        global $conn;
+        $id = (int)$id;
+        $sql = "SELECT * FROM users WHERE id = $id";
+        $result = $conn->query($sql);
+        return $result->fetch_assoc();
+    }
+}
+
