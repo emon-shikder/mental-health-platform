@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && is_logged_in() && is_counselor($_SES
     $url = trim($_POST['url']);
     
     if (empty($title) || empty($type) || empty($description) || empty($url)) {
-        $error = 'Please fill in all fields.';
+        $error = 'Please fill all the fields.';
     } else {
         if (add_resource($title, $type, $description, $url)) {
             $success = 'Resource added successfully!';
