@@ -1,3 +1,7 @@
+<?php
+session_start();
+require_once 'db.php';
+
 if (!function_exists('is_logged_in')) {
     function is_logged_in() {
         return isset($_SESSION['user_id']);
@@ -52,6 +56,29 @@ if (!function_exists('add_comment')) {
         $text = $conn->real_escape_string($text);
         $sql = "INSERT INTO comments (post_id, user_id, comment, created_at) 
                 VALUES ($post_id, $user_id, '$text', NOW())";
+        return $conn->query($sql);
+    }
+}
+
+// Get user moods
+if (!function_exists('get_moods')) {
+    function get_moods($user_id) {
+        global $conn;
+        $user_id = (int)$user_id;
+        $sql = "SELECT * FROM moods WHERE user_id = $user_id ORDER BY date DESC";
+        $result = $conn->query($sql);
+        return $result;
+    }
+}
+
+// Add mood
+if (!function_exists('add_mood')) {
+    function add_mood($user_id, $mood, $date) {
+        global $conn;
+        $user_id = (int)$user_id;
+        $mood = $conn->real_escape_string($mood);
+        $date = $conn->real_escape_string($date);
+        $sql = "INSERT INTO moods (user_id, mood, date) VALUES ($user_id, '$mood', '$date')";
         return $conn->query($sql);
     }
 }
