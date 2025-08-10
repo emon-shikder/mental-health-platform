@@ -1,3 +1,47 @@
+function validate_form(form_id) {
+    const form = document.getElementById(form_id);
+    if (!form) return true;
+    
+    const inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
+    let valid = true;
+    
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            input.style.borderColor = '#dc3545';
+            valid = false;
+        } else {
+            input.style.borderColor = '#e9ecef';
+        }
+    });
+    
+    return valid;
+}
+
+function validate_password_match() {
+    const password = document.getElementById('password');
+    const confirm_password = document.getElementById('confirm_password');
+    
+    if (password && confirm_password) {
+        if (password.value !== confirm_password.value) {
+            confirm_password.style.borderColor = '#dc3545';
+            return false;
+        } else {
+            confirm_password.style.borderColor = '#e9ecef';
+            return true;
+        }
+    }
+    return true;
+}
+
+function toggle_password_visibility(input_id) {
+    const input = document.getElementById(input_id);
+    if (input.type === 'password') {
+        input.type = 'text';
+    } else {
+        input.type = 'password';
+    }
+}
+
 function toggle_mobile_menu() {
     const nav = document.querySelector('.navbar-nav');
     nav.classList.toggle('show');
